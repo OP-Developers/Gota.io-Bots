@@ -9,16 +9,16 @@
 ### Installation
 
 1. Download [Node.JS](https://nodejs.org/)
-2. Run the file called `install.bat`. 
+2. Run the file called `install.bat`. (For linux use `npm install`)
 3. If you are on chrome install tampermonkey extension from [here](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), and if you are on firefox download the tampermonkey extension from [here](https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/).
 
 ### Activating Bots
 
 First we will need to turn our server on so that our client script can interact with the server and receive bots.
 
-1. Run the file called `run.bat`
-2. Copy the code from [client.js](https://github.com/Neonx99/mope.io-bots/blob/master/client.js) and make a new script on tampermonkey.
-3. Go to [mope.io](https://mope.io/) and enjoy!
+1. Run the file called `run.bat`.(For linux do `node server.js`)
+2. Copy the code from [client.js](https://github.com/OP-Developers/Gota.io-Bots/blob/main/client.js) and make a new script on tampermonkey.
+3. Go to [gota.io](https://gota.io/) and enjoy!
 
 ---
 
