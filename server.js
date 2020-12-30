@@ -18,6 +18,8 @@ const getProxy = () => {
     })
 };
 
+getProxy();
+
 let userSocket = null;
 
 const initServer = () => {
