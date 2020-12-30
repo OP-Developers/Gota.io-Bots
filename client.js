@@ -14,6 +14,7 @@
          constructor() {
              this.server = null;
              this.ws = null;
+             this.listeners();
          }
          connect() {
              this.ws = new WebSocket("ws://127.0.0.1:5000");
@@ -24,15 +25,34 @@
              this.ws.onmessage = this.message.bind(this);
          }
          open() {
- 
+
          }
          close() {
              this.connect();
          }
          error() {
- 
+
          }
-         message(msg) {}
+         message(msg) {
+             msg = target.normalizeBuffer(msg.data);
+             let offset = 0;
+             switch (msg.getUint8(offset++)) {
+                case 0: {
+                    let botID = msg.getUint8(offset++);
+                    recaptchaVal.execute("6LcycFwUAAAAANrun52k-J1_eNnF9zeLvgfJZSY3", {action: `login`}).then(token => {
+                        let buf = this.createBuffer(3 + token.length);
+                        let offset = 0;
+                        buf.setUint8(offset++, 2);
+                        buf.setUint8(offset++, botID);
+                        for(let i = 0; i < token.length; i++) {
+                            buf.setUint8(offset++, token.charCodeAt(i))
+                        };
+                        buf.setUint8(offset++, 0)
+                        this.send(buf);
+                    });
+                } break;    
+             }
+         }
          send(buf) {
              if(this.ws && this.ws.readyState == 1) this.ws.send(buf);
          }
@@ -49,8 +69,9 @@
              buf.setUint8(offset++, 0)
              this.send(buf);
          }
+
          getRecaptchaToken() {
- 
+
             recaptchaVal.execute("6LcycFwUAAAAANrun52k-J1_eNnF9zeLvgfJZSY3", {action: `login`}).then(token => {
                  let buf = this.createBuffer(2 + token.length);
                  let offset = 0;
@@ -62,11 +83,28 @@
                  this.send(buf);
              });
              setTimeout(() => {
-                 this.getRecaptchaToken();
-             }, 10000);
+                 this.getRecaptchaToken()
+             }, 4000 + ~~(Math.random() + 6000));
          }
+
+         listeners() {
+             console.log("init");
+             window.addEventListener("keydown", (e) => {
+                e = e.which || e.keyCode;
+                console.log(e);
+                switch (e) {
+                    case 88:
+                        this.send(new Uint8Array([3]))
+                        break;
+                    case 67:
+                        this.send(new Uint8Array([4]))
+                        break;
+                }
+             })
+         }
+
      }
- 
+
      target.normalizeBuffer = (buf) => {
          buf = new Uint8Array(buf);
          let newBuf = new DataView(new ArrayBuffer(buf.byteLength));
@@ -75,7 +113,7 @@
          }
          return newBuf;
      }
- 
+
      target.WebSocket.prototype._sniff = target.WebSocket.prototype.send;
      target.WebSocket.prototype.send = function() {
          this._sniff.apply(this, arguments);
@@ -87,6 +125,9 @@
                  {
                      target.config.send(buf);
                  } break;
+                 default:
+                     console.log(new Uint8Array(arguments[0]).buffer)
+                     break;
              }
              if(target.config.server != this.url) {
                  target.config.server = this.url;
@@ -94,7 +135,7 @@
              }
          }
      }
- 
+
      let recaptchaVal = null;
      let int = setInterval(() => {
         if(window.grecaptcha) {
@@ -106,9 +147,8 @@
      target.config = new config();
      target.config.connect();
      setTimeout(() => {
-         target.config.getRecaptchaToken();
+         //target.config.getRecaptchaToken();
          $(".error-banner").remove();
      }, 15000);
- 
+
  })(window)
- 
