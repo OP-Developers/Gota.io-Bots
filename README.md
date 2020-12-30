@@ -16,9 +16,10 @@
 
 First we will need to turn our server on so that our client script can interact with the server and receive bots.
 
-1. Run the file called `run.bat`.(For linux do `node server.js`)
-2. Copy the code from [client.js](https://github.com/OP-Developers/Gota.io-Bots/blob/main/client.js) and make a new script on tampermonkey.
-3. Go to [gota.io](https://gota.io/) and enjoy!
+1. Fill proxy.txt with HTTP type proxies. P.s Method to get good free proxies is inside proxy.txt but you can use ur own if u like.
+2. Run the file called `run.bat`.(For linux do `node server.js`)
+3. Copy the code from [client.js](https://github.com/OP-Developers/Gota.io-Bots/blob/main/client.js) and make a new script on tampermonkey.
+4. Go to [gota.io](https://gota.io/) and enjoy!
 
 ---
 
