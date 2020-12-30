@@ -125,7 +125,7 @@ class bot {
     connect() {
         this.inConnect = true;
         this.ws = new WebSocket(this.server, {
-            agent: new proxyagent(`socks4://${proxy[(~~(Math.random() * proxy.length))]}`)
+            agent: new proxyagent(`http://${proxy[(~~(Math.random() * proxy.length))]}`)
         });
         this.ws.binaryType = "nodebuffer";
         this.ws.onopen = this.open.bind(this);
