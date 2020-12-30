@@ -23,3 +23,8 @@ First we will need to turn our server on so that our client script can interact 
 ---
 
 **Make sure you have Node.JS installed and working on your system else this won't work!**
+
+### Updated (30/12/202):
+1. Added spliting and ejecting support for bots.
+2. Optimized reCaptcha token manager.
+3. Some minor changes here and there.
