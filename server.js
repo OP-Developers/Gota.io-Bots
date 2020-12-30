@@ -1,24 +1,17 @@
 const WebSocket = require("ws");
 const request = require("request-promise");
 const proxyagent = require("proxy-agent");
+const fs = require("fs");
 
 const gotaClientVersion = '3.2.13';
 const botsAmount = 200;
 
 let int = null;
-let proxy = null;
 let bots = [];
 let gottokens = 0;
 
+const proxy = fs.readFileSync("./proxy.txt", "utf-8").split("\n");
 
-const getProxy = () => {
-    request.get("https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=10000&country=all").then(proxies => {
-        proxy = proxies.split("\n");
-        console.log(`${proxy.length} successfully loaded proxy`);
-    })
-};
-
-getProxy();
 
 let userSocket = null;
 
