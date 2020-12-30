@@ -1,4 +1,4 @@
-title Mope.io Bots Server
+title Gota.io Bots Server
 cls
 node server.js
 pause
