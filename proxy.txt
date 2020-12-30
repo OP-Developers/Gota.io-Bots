@@ -1,5 +1,5 @@
-Add you HTTP proxies here
+Add your HTTP proxies here
 
-If you want free proxies go to webshare.io , get there rotating proxies , update your ip on their site and copy paste their rotating proxy here 50-60 times.
+If you want free proxies go to webshare.io , get their rotating proxies , update your ip on their site and copy paste their rotating proxy here 50-60 times.
 
 Enjoy
