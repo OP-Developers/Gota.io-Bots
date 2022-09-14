@@ -1,15 +1,1 @@
-Add your HTTP proxies here
 
-If you want free proxies go to webshare.io , get their rotating proxies , update your ip on their site and copy paste their rotating proxy here 50-60 times.
-
-Enjoy
-185.199.229.156:7492:ottwtdrg:irqt3ag7v89o
-185.199.228.220:7300:ottwtdrg:irqt3ag7v89o
-185.199.231.45:8382:ottwtdrg:irqt3ag7v89o
-144.168.217.88:8780:ottwtdrg:irqt3ag7v89o
-144.168.217.122:8814:ottwtdrg:irqt3ag7v89o
-144.168.217.164:8856:ottwtdrg:irqt3ag7v89o
-144.168.217.134:8826:ottwtdrg:irqt3ag7v89o
-144.168.217.201:8893:ottwtdrg:irqt3ag7v89o
-144.168.217.89:8781:ottwtdrg:irqt3ag7v89o
-144.168.217.244:8936:ottwtdrg:irqt3ag7v89o
